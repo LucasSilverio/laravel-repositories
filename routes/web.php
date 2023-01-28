@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController;
+
 
 //Route::resource('/admin/categories', 'Admin\CategoryController');
 
@@ -17,6 +19,7 @@ Route::get('admin', function() {
 Route::prefix('admin')->group(function(){
     Route::any('categories/search', [CategoryController::class, 'search'])->name('categories.search');
     Route::resource('categories', CategoryController::class);
+    Route::resource('products', ProductController::class);
 });
 
 Auth::routes();
